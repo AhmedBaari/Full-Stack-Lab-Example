@@ -1,4 +1,4 @@
-# Full Stack Web App Example
+# Full Stack WebApp - Lab Examination
 Created for the Full Stack Web App Development Lab Examination.
 
 This repository contains a simple full stack web application for waste management. The backend is built with Node.js, Express, and MongoDB, while the frontend is developed using React and Bootstrap.
@@ -46,12 +46,12 @@ Make sure to have MongoDB running locally or provide a MongoDB connection string
 
 ## Files to Learn From
 ### Frontend
-- `frontend/src/App.js`: Main component file for the frontend.
+- [`frontend/src/App.js`](https://github.com/AhmedBaari/wastemgmt/blob/bf0973df2d8ebf742560b4b3d72cdbe4fc0e1c80/frontend/src/App.js): Main component file for the frontend.
 These files contain the core logic and structure of the application and are good starting points for understanding how the full stack web app is built.
 
-- `frontend/src/components/AddRecord.js`: Component for adding new waste records.
-- `frontend/src/components/RecordList.js`: Component for displaying the list of waste records.
+- [`frontend/src/components/AddRecord.js`](https://github.com/AhmedBaari/wastemgmt/blob/bf0973df2d8ebf742560b4b3d72cdbe4fc0e1c80/frontend/src/components/AddRecord.js): Component for adding new waste records.
+- [`frontend/src/components/RecordList.js`](https://github.com/AhmedBaari/wastemgmt/blob/bf0973df2d8ebf742560b4b3d72cdbe4fc0e1c80/frontend/src/components/RecordList.js): Component for displaying the list of waste records.
 
 
 ### Backend
-- `backend/index.js`: Main server file for the backend. Contains the Schema, Model, and CRUD routes.
+- [`backend/index.js`](https://github.com/AhmedBaari/wastemgmt/blob/bf0973df2d8ebf742560b4b3d72cdbe4fc0e1c80/backend/index.js): Main server file for the backend. Contains the Schema, Model, and CRUD routes.
