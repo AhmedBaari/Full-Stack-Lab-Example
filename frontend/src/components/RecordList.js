@@ -26,6 +26,7 @@ function RecordList() {
     const collectionDate = prompt("Enter collection date (YYYY-MM-DD):");
     const vehicleID = prompt("Enter vehicle ID:");
     const wasteQuantity = prompt("Enter waste quantity:");
+
     if (zoneName && collectionDate && vehicleID && wasteQuantity) {
       await axios.put(`http://localhost:5000/api/records/${id}`, {
         zoneName,
@@ -50,6 +51,7 @@ function RecordList() {
   return (
     <Container>
       <h2>Waste Collection Records</h2>
+
       <Row>
         <Col md={6}>
           <Form.Label>Filter by Date</Form.Label>
@@ -70,7 +72,9 @@ function RecordList() {
           />
         </Col>
       </Row>
+      
       <Table striped>
+
         <thead>
           <tr>
             <th>Zone Name</th>
@@ -80,12 +84,13 @@ function RecordList() {
             <th>Actions</th>
           </tr>
         </thead>
+
         <tbody>
-          
           {filtered.map((record) => (
+            
             <tr key={record._id}>
               <td>{record.zoneName}</td>
-              <td>{new Date(record.collectionDate).toLocaleDateString()}</td>
+              <td>{record.collectionDate}</td>
               <td>{record.vehicleID}</td>
               <td>{record.wasteQuantity}</td>
               <td>
@@ -96,6 +101,7 @@ function RecordList() {
                 >
                   Edit
                 </Button>{" "}
+                
                 <Button
                   onClick={() => deleteRecord(record._id)}
                   variant="danger"

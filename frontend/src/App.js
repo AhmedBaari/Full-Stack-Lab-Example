@@ -7,24 +7,19 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container fluid>
-          
-          <Navbar.Brand as={Link} to="/">
-            Waste Management
-          </Navbar.Brand>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">Waste Management</Navbar.Brand>
 
           <Nav>
-            <Nav.Link as={Link} to="/add">
+            <Nav.Link href="/add">
               Add Record
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/list">
+            <Nav.Link href="/list">
               View Records
             </Nav.Link>
           </Nav>
-
         </Container>
       </Navbar>
 
@@ -33,7 +28,6 @@ function App() {
         <Route path="/add" element={<AddRecord />} />
         <Route path="/list" element={<RecordList />} />
       </Routes>
-
     </BrowserRouter>
   );
 }
