@@ -15,9 +15,9 @@ function App() {
 
           {/* Navigation links */}
           <Nav>
-            <Nav.Link href="/add">Add Record</Nav.Link>
+            <Nav.Link href="/add_record">Add Record</Nav.Link>
 
-            <Nav.Link href="/list">View Records</Nav.Link>
+            <Nav.Link href="/view_records">View Records</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -25,8 +25,8 @@ function App() {
       {/* Route definitions - maps URLs to components */}
       <Routes>
         <Route path="/" element={<RecordList />} />
-        <Route path="/add" element={<AddRecord />} />
-        <Route path="/list" element={<RecordList />} />
+        <Route path="/add_record" element={<AddRecord />} />
+        <Route path="/view_records" element={<RecordList />} />
       </Routes>
     </BrowserRouter>
   );

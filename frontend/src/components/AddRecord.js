@@ -1,6 +1,5 @@
 // Import necessary libraries for form handling, routing, and API calls
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 import axios from "axios";
 
@@ -12,13 +11,11 @@ function AddRecord() {
     formState: { errors },
   } = useForm();
 
-  // Setup navigation hook for redirecting after submission
-  const navigate = useNavigate();
+
 
   // Handle form submission - POST data to backend API
   const onSubmit = async (data) => {
     await axios.post("http://localhost:5000/api/records", data);
-    navigate("/list"); // Redirect to list page after successful submission
   };
 
   return (
