@@ -3,25 +3,31 @@ import { Container, Row, Col, Form, Table, Button } from "react-bootstrap";
 import axios from "axios";
 
 function RecordList() {
+  // State management for records and filters
   const [records, setRecords] = useState([]);
   const [dateFilter, setDateFilter] = useState("");
   const [zoneFilter, setZoneFilter] = useState("");
 
+  // Fetch records when component mounts
   useEffect(() => {
     fetchRecords();
   }, []);
 
+  // GET request to fetch all records from backend
   const fetchRecords = async () => {
     const response = await axios.get("http://localhost:5000/api/records");
     setRecords(response.data);
   };
 
+  // DELETE request to remove a record
   const deleteRecord = async (id) => {
     await axios.delete(`http://localhost:5000/api/records/${id}`);
-    fetchRecords();
+    fetchRecords(); // Refresh list after deletion
   };
 
+  // PUT request to update a record
   const updateRecord = async (id) => {
+    // Prompt user for updated values
     const zoneName = prompt("Enter zone name:");
     const collectionDate = prompt("Enter collection date (YYYY-MM-DD):");
     const vehicleID = prompt("Enter vehicle ID:");
@@ -34,10 +40,11 @@ function RecordList() {
         vehicleID,
         wasteQuantity: Number(wasteQuantity),
       });
-      fetchRecords();
+      fetchRecords(); // Refresh list after update
     }
   };
 
+  // Filter records based on date and zone criteria
   const filtered = records.filter((record) => {
     const matchesDate =
       !dateFilter || record.collectionDate.substring(0, 10) === dateFilter;
@@ -52,6 +59,7 @@ function RecordList() {
     <Container>
       <h2>Waste Collection Records</h2>
 
+      {/* Filter inputs */}
       <Row>
         <Col md={6}>
           <Form.Label>Filter by Date</Form.Label>
@@ -73,6 +81,7 @@ function RecordList() {
         </Col>
       </Row>
       
+      {/* Table displaying filtered records */}
       <Table striped>
 
         <thead>
@@ -86,6 +95,7 @@ function RecordList() {
         </thead>
 
         <tbody>
+          {/* Map through filtered records and display each as a table row */}
           {filtered.map((record) => (
             
             <tr key={record._id}>
@@ -94,6 +104,7 @@ function RecordList() {
               <td>{record.vehicleID}</td>
               <td>{record.wasteQuantity}</td>
               <td>
+                {/* Edit button - opens prompts for updating */}
                 <Button
                   onClick={() => updateRecord(record._id)}
                   variant="warning"
@@ -102,6 +113,7 @@ function RecordList() {
                   Edit
                 </Button>{" "}
                 
+                {/* Delete button - removes record */}
                 <Button
                   onClick={() => deleteRecord(record._id)}
                   variant="danger"
