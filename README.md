@@ -51,7 +51,10 @@ These files contain the core logic and structure of the application and are good
 
 - [`frontend/src/components/AddRecord.js`](https://github.com/AhmedBaari/wastemgmt/blob/bf0973df2d8ebf742560b4b3d72cdbe4fc0e1c80/frontend/src/components/AddRecord.js): Component for adding new waste records.
 - [`frontend/src/components/RecordList.js`](https://github.com/AhmedBaari/wastemgmt/blob/bf0973df2d8ebf742560b4b3d72cdbe4fc0e1c80/frontend/src/components/RecordList.js): Component for displaying the list of waste records.
-
+- Be sure to add the following to [index.js](https://github.com/AhmedBaari/Full-Stack-Lab-Example/blob/5cc8e58914cdd40bfcf5bfb0e3395ff78f4a2098/frontend/src/index.js):
+```jsx
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
 
 ### Backend
 - [`backend/index.js`](https://github.com/AhmedBaari/wastemgmt/blob/bf0973df2d8ebf742560b4b3d72cdbe4fc0e1c80/backend/index.js): Main server file for the backend. Contains the Schema, Model, and CRUD routes.
